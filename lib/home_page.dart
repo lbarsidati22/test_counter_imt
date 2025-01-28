@@ -34,7 +34,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter App'),
+        title: Text(
+          'Counter App',
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+        ),
         centerTitle: true,
       ),
       body: Center(
