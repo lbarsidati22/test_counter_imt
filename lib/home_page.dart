@@ -24,6 +24,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void resetCounter() {
+    setState(() {
+      counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +46,9 @@ class _HomePageState extends State<HomePage> {
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -80,6 +89,20 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ],
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: counter > 0 ? Colors.deepPurple : Colors.grey,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              onPressed: counter > 0 ? resetCounter : null,
+              child: Icon(
+                Icons.restore,
+                color: Colors.white,
+                size: 30,
+              ),
             ),
           ],
         ),
